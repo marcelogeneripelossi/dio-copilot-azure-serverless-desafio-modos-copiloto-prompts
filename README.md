@@ -112,6 +112,28 @@ Para que a IA incorpore o personagem com sucesso, monte seu prompt seguindo esta
 * **Regras de Estilo:** "Sempre utilize um tom [ex: amigável / técnico / assertivo]."
 * **Restrições:** "Nunca [ex: invente informações / use gírias / responda com mais de 3 parágrafos]."
 
+---
+
+# Boas Práticas para Testar Prompts
+
+Para garantir que a personalidade e as respostas do seu Copiloto sejam consistentes, siga estas diretrizes durante a fase de testes:
+
+### 1. Teste de Estresse (Fronteiras)
+* **Tente tirar a IA do personagem:** Faça perguntas fora do escopo do papel definido para ver se ela mantém a postura.
+* **Force erros propositais:** Envie códigos quebrados ou dados incorretos para avaliar se o tom de correção continua alinhado à personalidade.
+
+### 2. Validação de Restrições
+* **Monitore o tamanho das respostas:** Verifique se o modelo respeita limites de tamanho definidos (ex: "seja conciso").
+* **Cheque o uso de jargões:** Avalie se o perfil Analítico usou termos emocionais ou se o perfil Empático foi excessivamente frio.
+
+### 3. Abordagem de Teste A/B
+* **Mantenha o contexto fixo:** Use exatamente a mesma pergunta (input) para testar pequenas variações nas instruções de personalidade.
+* **Compare saídas:** Avalie qual variação de prompt gerou a resposta mais natural e útil para o usuário final.
+
+### 4. Técnica do "Few-Shot Prompting"
+* **Forneça exemplos no prompt:** Se a IA falhar em adotar o tom desejado, inclua no prompt um ou dois exemplos reais de interações ideais (Exemplo de Pergunta / Exemplo de Resposta esperada).
+
+
 
 
 
