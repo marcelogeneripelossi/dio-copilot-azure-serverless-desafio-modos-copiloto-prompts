@@ -205,7 +205,7 @@ Para extrair a máxima eficiência do seu ecossistema de Copilotos, o fluxo de t
 
 ---
 
-# Kit de Prompts para Copilotos .NET (Tech Lead Sênior)
+# Kit de Prompts para Copilotos .NET
 
 ## Instruções de Configuração Rápidas
 
