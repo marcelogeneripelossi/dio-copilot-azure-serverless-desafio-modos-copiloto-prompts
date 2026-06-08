@@ -1,6 +1,10 @@
 # Criação de Copilotos
 A criação de um Copiloto é o processo de desenvolver agentes de IA especializados que atuam como assistentes em tarefas específicas — seja para apoiar usuários finais, equipes de desenvolvimento ou processos empresariais.
 
+Este repositório contém uma coleção de prompts especializados para transformar seu assistente de IA em um **Tech Lead Sênior focado na stack .NET / C#**. Os prompts estão divididos em modos de operação específicos (`STUDY`, `ASK`, `PLAN`, `EDIT` e `AGENT CODE`) para maximizar a assertividade e evitar comportamentos indesejados.
+
+No final do Readme há Instruções de Configuração Rápidas para importar os modos em sua ferramenta de desenvolvimento e alternar entre eles de forma ágil.
+
 ---
 
 ## Introdução ao conceito de Copilotos
@@ -14,7 +18,7 @@ A criação de um Copiloto é o processo de desenvolver agentes de IA especializ
 
 ---
 
-## Exemplos práticos de Copilotos
+## Exemplos para que pode-se criar Copilotos
 - **Copiloto para desenvolvedores**: ajuda a escrever código, revisar trechos e sugerir boas práticas.  
 - **Copiloto para negócios**: apoia equipes comerciais com insights de clientes e geração de propostas.  
 - **Copiloto para suporte**: responde tickets, sugere soluções e automatiza respostas.  
@@ -118,19 +122,19 @@ Para que a IA incorpore o personagem com sucesso, monte seu prompt seguindo esta
 
 Para garantir que a personalidade e as respostas do seu Copiloto sejam consistentes, siga estas diretrizes durante a fase de testes:
 
-### 1. Teste de Estresse (Fronteiras)
+## 1. Teste de Estresse (Fronteiras)
 * **Tente tirar a IA do personagem:** Faça perguntas fora do escopo do papel definido para ver se ela mantém a postura.
 * **Force erros propositais:** Envie códigos quebrados ou dados incorretos para avaliar se o tom de correção continua alinhado à personalidade.
 
-### 2. Validação de Restrições
+## 2. Validação de Restrições
 * **Monitore o tamanho das respostas:** Verifique se o modelo respeita limites de tamanho definidos (ex: "seja conciso").
 * **Cheque o uso de jargões:** Avalie se o perfil Analítico usou termos emocionais ou se o perfil Empático foi excessivamente frio.
 
-### 3. Abordagem de Teste A/B
+## 3. Abordagem de Teste A/B
 * **Mantenha o contexto fixo:** Use exatamente a mesma pergunta (input) para testar pequenas variações nas instruções de personalidade.
 * **Compare saídas:** Avalie qual variação de prompt gerou a resposta mais natural e útil para o usuário final.
 
-### 4. Técnica do "Few-Shot Prompting"
+## 4. Técnica do "Few-Shot Prompting"
 * **Forneça exemplos no prompt:** Se a IA falhar em adotar o tom desejado, inclua no prompt um ou dois exemplos reais de interações ideais (Exemplo de Pergunta / Exemplo de Resposta esperada).
 
 ---
@@ -156,27 +160,27 @@ Como parte prática deste guia de criação de Copilotos, estruturamos **5 promp
 
 Abaixo está o resumo de cada modo para você escolher o ideal para a sua tarefa atual:
 
-### 1. Mode STUDY (`/prompts/prompt-study.md`)
+### 1. Modo STUDY (`/prompts/prompt-study.md`)
 * **Propósito:** Mentoria didática e ganho de contexto.
 * **Foco:** Explicar conceitos complexos da stack .NET (como ciclo de vida do `DbContext` ou concorrência assíncrona) utilizando analogias, exemplos mínimos comentados e alertas sobre armadilhas comuns.
 
-### 2. Mode ASK (`/prompts/prompt-ask.md`)
+### 2. Modo ASK (`/prompts/prompt-ask.md`)
 * **Propósito:** Consulta rápida e diagnóstico de erros (Somente Leitura).
 * **Foco:** Responder dúvidas diretas, explicar o funcionamento de códigos legados ou interpretar *stack traces* de exceções (ex: `NullReferenceException`), fornecendo caminhos de validação sem alterar nenhum arquivo.
 
-### 3. Mode PLAN (`/prompts/prompt-plan.md`)
+### 3. Modo PLAN (`/prompts/prompt-plan.md`)
 * **Propósito:** Desenho de arquitetura e estratégia antes do código.
 * **Foco:** Gerar um plano de ação revisável estruturado com escopo, áreas afetadas na Solution (`.sln`), riscos técnicos e planos de teste com `xUnit`/`NUnit`. **Restrição:** Não escreve o código final, apenas contratos e assinaturas.
 
-### 4. Mode EDIT (`/prompts/prompt-edit.md`)
+### 4. Modo EDIT (`/prompts/prompt-edit.md`)
 * **Propósito:** Refatoração e modificação cirúrgica.
 * **Foco:** Pegar um código C#, T-SQL ou Razor existente e transformá-lo diretamente com base em instruções de melhoria de performance, inclusão de logs, tratamento de erros ou limpeza de estilo, entregando o bloco pronto para substituição.
 
-### 5. Mode AGENT CODE (`/prompts/prompt-agent.md`)
+### 5. Modo AGENT CODE (`/prompts/prompt-agent.md`)
 * **Propósito:** Execução ponta a ponta autônoma.
 * **Foco:** Assumir o controle de um incremento de software seguindo o ciclo completo de um agente: *Descobrir, Planejar, Implementar, Verificar e Finalizar*, gerando novos arquivos e códigos completos prontos para produção.
 
-## Guia Rápido: Qual Modo do Copiloto Utilizar?
+## Guia Rápido: Qual Modo de Copiloto Utilizar?
 
 Utilize a tabela abaixo como uma matriz de decisão rápida para alternar entre os arquivos de prompt (`prompt-agent.md`, `prompt-ask.md`, `prompt-plan.md`, `prompt-edit.md` e `prompt-study.md`) conforme a sua necessidade atual no ciclo de desenvolvimento:
 
@@ -200,4 +204,40 @@ Para extrair a máxima eficiência do seu ecossistema de Copilotos, o fluxo de t
 4. **ASK**: Diagnostique eventuais erros de runtime ou exceções que estourarem nos testes do `xUnit`/`NUnit`.
 
 ---
+
+# Kit de Prompts para Copilotos .NET (Tech Lead Sênior)
+
+
+
+---
+
+## Instruções de Configuração Rápidas
+
+Escolha a sua ferramenta de desenvolvimento abaixo para importar e alternar entre os modos de forma ágil:
+
+### 1. No Cursor Editor (Recomendado)
+O Cursor permite alternar entre os modos usando as **System Prompts** ou regras por arquivo:
+* **Configuração Global:** Vá em `Settings` > `Features` > `Rules for AI`. Cole o conteúdo do modo que você mais utiliza no dia a dia (ex: `prompt-agent.md` ou `prompt-edit.md`) para que a IA adote essa postura por padrão.
+* **Alternância Ágil via Chat:** Guarde os arquivos na pasta `.cursor/rules/` do seu projeto. Você pode chamar o arquivo digitando `@prompt-plan.md` ou `@prompt-ask.md` diretamente no chat antes de fazer a sua solicitação.
+
+### 2. No GitHub Copilot (Custom Instructions)
+Você pode moldar o comportamento do GitHub Copilot Chat instalando as instruções diretamente no seu workspace:
+* Na raiz do seu projeto, crie um arquivo chamado `.github/copilot-instructions.md`.
+* Copie e cole o conteúdo do prompt desejado dentro deste arquivo. O Copilot Chat passará a ler essas instruções automaticamente em todas as conversas dentro deste repositório.
+* *Dica:* Para alternar de modo, basta alterar o conteúdo desse arquivo ou referenciar o arquivo de prompt desejado usando `#file:prompt-plan.md` no chat.
+
+### 3. No VS Code (Extensão Copilot / Perfil Global)
+Se você utiliza o VS Code com extensões de chat gerais:
+* Vá em `Settings` (Ctrl + ,) e pesquise por `Github > Copilot > Chat: Custom Instructions`.
+* Clique em `Edit in settings.json` e adicione o caminho do seu arquivo de prompt ou cole as instruções diretamente na propriedade.
+
+### 4. No Visual Studio (2022 ou superior)
+O Visual Studio integra o GitHub Copilot Chat diretamente na IDE através de janelas dedicadas e arquivos de contexto:
+* **Uso via Arquivo de Contexto:** Deixe o arquivo de prompt que deseja usar (ex: `prompt-ask.md`) aberto em uma aba no Visual Studio. No chat do Copilot (Ctrl + Alt + C), digite `#` e selecione o arquivo correspondente para que ele sirva de instrução para a sua pergunta.
+* **Instruções Personalizadas do Repositório:** Assim como no VS Code, se você criar o arquivo `.github/copilot-instructions.md` na raiz da Solution (`.sln`), as versões mais recentes do Copilot para Visual Studio lerão essas regras de comportamento automaticamente para o escopo do projeto.
+
+
+---
+
+
 
