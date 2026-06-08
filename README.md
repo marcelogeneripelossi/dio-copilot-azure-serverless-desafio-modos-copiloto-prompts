@@ -3,7 +3,7 @@ A criação de um Copiloto é o processo de desenvolver agentes de IA especializ
 
 Este repositório contém uma coleção de prompts especializados para transformar seu assistente de IA em um **Tech Lead Sênior focado na stack .NET / C#**. Os prompts estão divididos em modos de operação específicos (`STUDY`, `ASK`, `PLAN`, `EDIT` e `AGENT CODE`) para maximizar a assertividade e evitar comportamentos indesejados.
 
-No final do Readme há Instruções de Configuração Rápidas para importar os modos em sua ferramenta de desenvolvimento e alternar entre eles de forma ágil.
+No final do Readme há **Instruções de Configuração Rápidas** para importar os modos em sua ferramenta de desenvolvimento e alternar entre eles de forma ágil, e uma **Instrução de Configuração "Por Gatilho"** no Visual Studio.
 
 ---
 
@@ -207,10 +207,6 @@ Para extrair a máxima eficiência do seu ecossistema de Copilotos, o fluxo de t
 
 # Kit de Prompts para Copilotos .NET (Tech Lead Sênior)
 
-
-
----
-
 ## Instruções de Configuração Rápidas
 
 Escolha a sua ferramenta de desenvolvimento abaixo para importar e alternar entre os modos de forma ágil:
@@ -236,8 +232,34 @@ O Visual Studio integra o GitHub Copilot Chat diretamente na IDE através de jan
 * **Uso via Arquivo de Contexto:** Deixe o arquivo de prompt que deseja usar (ex: `prompt-ask.md`) aberto em uma aba no Visual Studio. No chat do Copilot (Ctrl + Alt + C), digite `#` e selecione o arquivo correspondente para que ele sirva de instrução para a sua pergunta.
 * **Instruções Personalizadas do Repositório:** Assim como no VS Code, se você criar o arquivo `.github/copilot-instructions.md` na raiz da Solution (`.sln`), as versões mais recentes do Copilot para Visual Studio lerão essas regras de comportamento automaticamente para o escopo do projeto.
 
-
 ---
+
+## Instrução de Configuração "Por Gatilho" no Visual Studio
+Para alternar entre os 5 modos dentro de um único arquivo **.github/copilot-instructions.md** sem precisar abrir várias abas, a melhor estratégia é criar um Prompt Condicional por Gatilho.
+
+Em vez de colocar os prompts inteiros soltos (o que confundiria o modelo e estouraria o limite ideal de tokens), você irá unificar a Stack e a Personalidade (que são as mesmas para todos) no topo do arquivo. Abaixo, você mapeia os modos como "sub-rotinas" que só serão ativadas quando você digitar uma palavra-chave no chat (como /study, /plan).
+
+Utilize o arquivo **copilot-instructions.md** na pasta **prompts** do repositório como exemplo unificado dos Modos.
+
+Para alternar o modo, basta você digitar a palavra-chave no chat do Visual Studio juntamente com a sua dúvida:
+
+* Exemplo 1 (Modo Ask)
+````
+/ask Como corrijo o erro de DbUpdateConcurrencyException no Entity Framework?
+````
+
+* Exemplo 2 (Modo Edit)
+```
+/edit Melhore a performance desse método e adicione tratamento de logs: [cole seu código C# aqui]
+```
+
+* Exemplo 3 (Modo Study)
+````
+/study O que são e quando devo usar records em C#?
+````
+
+
+
 
 
 
